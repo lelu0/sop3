@@ -3,8 +3,8 @@ using namespace std::chrono_literals;
 
 Village::Village()
 {
-    factory = Factory(3000);
-    mine = Mine(3000);
+    factory = Factory(config->factoryDelay);
+    mine = Mine(config->mineDelay);
     rednecksCounter = 0;
 }
 void Village::factoryThread()

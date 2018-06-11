@@ -2,6 +2,7 @@
 #define VILLAGE_H
 #include "factory.h"
 #include "mine.h"
+#include "config.h"
 #include "redneck.h"
 #include <condition_variable>
 #include <mutex>
@@ -12,6 +13,7 @@
 #include <fstream>
 
 extern std::vector<Redneck> rednecks;
+extern AppConfig *config;
 class Village{
     public:
     Village();

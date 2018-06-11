@@ -41,11 +41,12 @@ void updateWindowFct()
 
 int main(int argc, char *argv[])
 {
-
+    //config init
+    config = new AppConfig();
     village = new Village();
     srand(time(NULL));
     window = new Window();
-    //config init
+    
     //create control threads
     std::thread windowThread(updateWindowFct);
     std::thread exitThread(exitListener);
