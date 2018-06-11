@@ -3,7 +3,9 @@
 class Mine{
     public:
     int resources;
-    int timeFactor;    
+    int timeFactor;   
+    int queue;
+    int mining; 
     Mine(int f);
     Mine();
     ~Mine();

@@ -5,8 +5,7 @@ Redneck::Redneck(int f, int id){
     timeFactor = f;
     health = 100;
     isCarring = false;
-    if(id >= 15)isCarring = true;
-    direction = true;   
+    direction = (rand() % 100) > 50 ? false : true;
     position[1] = rand() % screenBorder[1] + 10;
     position[0] = rand() % screenBorder[0] + 1;
 }

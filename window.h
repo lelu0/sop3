@@ -7,7 +7,7 @@ class Window{
     Window();
     ~Window();
     void initWindow();
-    void updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials);
+    void updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials,int q, int m);
     void drawMine(int free, int id, int queue);
     void drawPeoples(std::vector<Redneck> rednecks);
     void drawFactory(int store, int materials);

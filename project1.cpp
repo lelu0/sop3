@@ -30,7 +30,7 @@ void updateWindowFct()
     {
         usleep(5000);
         village->w_mutex.lock();
-        window->updateWindow(village->factory.stock, village->mine.resources, rednecks, village->factory.materials);
+        window->updateWindow(village->factory.stock, village->mine.resources, rednecks, village->factory.materials, village->mine.queue, village->mine.mining );
         village->w_mutex.unlock();
     }
     delete window;

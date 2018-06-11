@@ -20,6 +20,7 @@ class Village{
     std::condition_variable factoryStockNotEmpty;
     std::condition_variable factoryMaterialsNotEmpty;
     std::condition_variable mineResourcesNotEmpty;
+    std::condition_variable miningCond;
     std::mutex f_mutex;
     std::mutex m_mutex;
     std::mutex w_mutex;
@@ -30,7 +31,7 @@ class Village{
     void putToFactory();
     Mine mine;
     void mineThread();
-    int getFromMine();
+    int getFromMine(int id);
     std::vector<std::thread> rednecksThreads;
     void redneckThread(int id);
     int rednecksCounter;

@@ -2,7 +2,9 @@
 
 Mine::Mine(int f){
     timeFactor = f;
-    resources = 20;    
+    resources = 5;    
+    queue = 0;
+    mining = -1;
 }
 Mine::Mine(){}
 Mine::~Mine(){}

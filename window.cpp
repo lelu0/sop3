@@ -50,7 +50,7 @@ void Window::drawPeoples(std::vector<Redneck> rednecks)
         }
             
     }
-    mvprintw(0, 15, "vecsize: %d", rednecks.size());
+    mvprintw(0, 15, "Population: %d", rednecks.size());
 }
 
 void Window::drawFactory(int store, int materials)
@@ -70,10 +70,10 @@ void Window::drawFactory(int store, int materials)
     mvprintw(4, 51, "Materials:%d", materials);
 }
 
-void Window::updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials)
+void Window::updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials, int q, int m)
 {
     clear();
-    drawMine(res, 0, 0); 
+    drawMine(res, m, q); 
     drawFactory(store, materials);
     drawPeoples(rednecks);
     refresh();
