@@ -13,7 +13,7 @@ void Village::factoryThread()
     {
         std::unique_lock<std::mutex> l(f_mutex);
         if (factory.materials == 0)
-            factoryMaterialsNotEmpty.wait_for(l, 22000ms, [this] { return factory.materials != 0; });
+            factoryMaterialsNotEmpty.wait(l);
         factory.materials--;
         factory.stock++;
         l.unlock();
@@ -59,7 +59,6 @@ void Village::spotterThread()
         }
         rednecks.push_back(Redneck(2000, rednecksCounter));
         rednecksThreads.push_back(std::thread(&Village::redneckThread,this, rednecksCounter++));
-        
     }
 }
 
@@ -68,8 +67,10 @@ void Village::redneckThread(int id)
     std::ofstream myfile;
     while (true)
     {
+        if(rednecks[id].health <= 0) continue;
         w_mutex.lock();
         rednecks[id].move();
+        rednecks[id].health--;        
         /*if (rednecks[id].id == 1)
         {            
             myfile.open("rednect.txt",std::ios::out | std::ios::app);
