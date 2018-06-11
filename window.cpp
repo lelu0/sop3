@@ -39,6 +39,7 @@ void Window::drawPeoples(std::vector<Redneck> rednecks){
     for(int i = 0; i < rednecks.size(); i++){
         mvprintw(rednecks[i].position[0],rednecks[i].position[1],"o");
     }
+    mvprintw(0,15, "vecsize: %d", rednecks.size());
 }
 
 void Window::drawFactory(int store){

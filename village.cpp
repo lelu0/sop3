@@ -46,32 +46,40 @@ void Village::mineThread()
 
 void Village::spotterThread()
 {
-    while (rednecksCounter < 2)
+    std::ofstream myfile;
+    while (rednecksCounter < 10)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-        rednecks.push_back(Redneck(2000, rednecksCounter++));
-        rednecksThreads.push_back(std::thread(&Village::redneckThread,this, &rednecks[rednecks.size() - 1]));
+        for(int i = 0; i < rednecks.size(); i++){            
+            myfile.open("rednect.txt",std::ios::out | std::ios::app);
+            myfile << "id: ";
+            myfile << rednecks[i].id;
+            myfile << "\n";
+            myfile.close();
+        }
+        rednecks.push_back(Redneck(2000, rednecksCounter));
+        rednecksThreads.push_back(std::thread(&Village::redneckThread,this, rednecksCounter++));
         
     }
 }
 
-void Village::redneckThread(Redneck *redneck)
+void Village::redneckThread(int id)
 {
     std::ofstream myfile;
     while (true)
     {
         w_mutex.lock();
-        redneck->move();
-        if (redneck->id = 1)
+        rednecks[id].move();
+        /*if (rednecks[id].id == 1)
         {            
             myfile.open("rednect.txt",std::ios::out | std::ios::app);
             myfile << "position: ";
-            myfile << redneck->position[1];
+            myfile << rednecks[id].position[1];
             myfile << "id: ";
-            myfile << redneck->id;
+            myfile << rednecks[id].id;
             myfile << "\n";
             myfile.close();
-        }
+        }*/
         w_mutex.unlock();
         
 

@@ -1,133 +1,45 @@
-position: 38id: 1
-position: 37id: 1
-position: 36id: 1
-position: 35id: 1
-position: 34id: 1
-position: 39id: 1
-position: 35id: 1
-position: 38id: 1
-position: 36id: 1
-position: 37id: 1
-position: 37id: 1
-position: 36id: 1
-position: 38id: 1
-position: 35id: 1
-position: 39id: 1
-position: 34id: 1
-position: 40id: 1
-position: 33id: 1
-position: 41id: 1
-position: 32id: 1
-position: 42id: 1
-position: 31id: 1
-position: 43id: 1
-position: 30id: 1
-position: 44id: 1
-position: 29id: 1
-position: 45id: 1
-position: 28id: 1
-position: 46id: 1
-position: 27id: 1
-position: 47id: 1
-position: 26id: 1
-position: 48id: 1
-position: 25id: 1
-position: 49id: 1
-position: 24id: 1
-position: 50id: 1
-position: 23id: 1
-position: 51id: 1
-position: 22id: 1
-position: 52id: 1
-position: 21id: 1
-position: 53id: 1
-position: 20id: 1
-position: 54id: 1
-position: 19id: 1
-position: 55id: 1
-position: 18id: 1
-position: 56id: 1
-position: 17id: 1
-position: 57id: 1
-position: 16id: 1
-position: 58id: 1
-position: 15id: 1
-position: 59id: 1
-position: 14id: 1
-position: 60id: 1
-position: 13id: 1
-position: 61id: 1
-position: 12id: 1
-position: 62id: 1
-position: 11id: 1
-position: 63id: 1
-position: 10id: 1
-position: 64id: 1
-position: 9id: 1
-position: 65id: 1
-position: 8id: 1
-position: 66id: 1
-position: 9id: 1
-position: 67id: 1
-position: 10id: 1
-position: 68id: 1
-position: 11id: 1
-position: 69id: 1
-position: 12id: 1
-position: 70id: 1
-position: 13id: 1
-position: 71id: 1
-position: 14id: 1
-position: 72id: 1
-position: 15id: 1
-position: 73id: 1
-position: 16id: 1
-position: 74id: 1
-position: 17id: 1
-position: 75id: 1
-position: 18id: 1
-position: 76id: 1
-position: 19id: 1
-position: 77id: 1
-position: 20id: 1
-position: 78id: 1
-position: 21id: 1
-position: 79id: 1
-position: 22id: 1
-position: 80id: 1
-position: 23id: 1
-position: 81id: 1
-position: 24id: 1
-position: 82id: 1
-position: 25id: 1
-position: 83id: 1
-position: 26id: 1
-position: 84id: 1
-position: 27id: 1
-position: 85id: 1
-position: 28id: 1
-position: 86id: 1
-position: 29id: 1
-position: 87id: 1
-position: 30id: 1
-position: 88id: 1
-position: 31id: 1
-position: 89id: 1
-position: 32id: 1
-position: 90id: 1
-position: 33id: 1
-position: 91id: 1
-position: 34id: 1
-position: 92id: 1
-position: 35id: 1
-position: 93id: 1
-position: 36id: 1
-position: 94id: 1
-position: 37id: 1
-position: 95id: 1
-position: 38id: 1
-position: 96id: 1
-position: 39id: 1
-position: 97id: 1
-position: 40id: 1
-position: 98id: 1
+id: 0
+id: 0
+id: 1
+id: 0
+id: 1
+id: 2
+id: 0
+id: 1
+id: 2
+id: 3
+id: 0
+id: 1
+id: 2
+id: 3
+id: 4
+id: 0
+id: 1
+id: 2
+id: 3
+id: 4
+id: 5
+id: 0
+id: 1
+id: 2
+id: 3
+id: 4
+id: 5
+id: 6
+id: 0
+id: 1
+id: 2
+id: 3
+id: 4
+id: 5
+id: 6
+id: 7
+id: 0
+id: 1
+id: 2
+id: 3
+id: 4
+id: 5
+id: 6
+id: 7
+id: 8

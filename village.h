@@ -10,6 +10,8 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+
+extern std::vector<Redneck> rednecks;
 class Village{
     public:
     Village();
@@ -28,9 +30,8 @@ class Village{
     Mine mine;
     void mineThread();
     int getFromMine();
-    std::vector<Redneck> rednecks;
     std::vector<std::thread> rednecksThreads;
-    void redneckThread(Redneck *redneck);
+    void redneckThread(int id);
     int rednecksCounter;
     void spotterThread();
 };

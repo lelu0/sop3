@@ -6,9 +6,11 @@
 #include <thread>
 #include <unistd.h>
 #include <vector>
+std::vector<Redneck> rednecks;
 Window *window;
 Village *village;
 AppConfig *config;
+
 bool running = true;
 
 void exitListener()
@@ -28,7 +30,7 @@ void updateWindowFct()
     {
         usleep(5000);
         village->w_mutex.lock();
-        window->updateWindow(village->factory.stock, village->mine.resources, village->rednecks);
+        window->updateWindow(village->factory.stock, village->mine.resources, rednecks);
         village->w_mutex.unlock();
     }
     delete window;
@@ -39,8 +41,7 @@ int main(int argc, char *argv[])
     village = new Village();
     srand(time(NULL));
     window = new Window();  
-    //config init
-    config = new AppConfig();    
+    //config init  
     //create control threads
     std::thread windowThread(updateWindowFct);    
     std::thread exitThread(exitListener); 
