@@ -8,6 +8,8 @@
 #include <thread>
 #include <chrono>
 #include <vector>
+#include <iostream>
+#include <fstream>
 class Village{
     public:
     Village();
@@ -18,6 +20,7 @@ class Village{
     std::condition_variable mineResourcesNotEmpty;
     std::mutex f_mutex;
     std::mutex m_mutex;
+    std::mutex w_mutex;
     //logic
     Factory factory;
     void factoryThread();
@@ -27,7 +30,7 @@ class Village{
     int getFromMine();
     std::vector<Redneck> rednecks;
     std::vector<std::thread> rednecksThreads;
-    static void redneckThread(Redneck *redneck);
+    void redneckThread(Redneck *redneck);
     int rednecksCounter;
     void spotterThread();
 };
