@@ -15,7 +15,7 @@ void Village::factoryThread()
         if (factory.materials <= 0)
             factoryMaterialsNotEmpty.wait(l);
         factory.materials--;
-        factory.stock += 2;
+        factory.stock++;
         l.unlock();
         factoryStockNotEmpty.notify_one();
         std::this_thread::sleep_for(std::chrono::milliseconds(factory.timeFactor));
@@ -101,7 +101,7 @@ void Village::redneckThread(int id)
         }
         if (rednecks[id].checkFactory())
         {
-            rednecks[id].health += (rand() % 30 + 10) * getFromFactory();
+            rednecks[id].health += (rand() % 100 + 50) * getFromFactory();
         }
         if (rednecks[id].checkMine())
         {
