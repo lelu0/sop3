@@ -26,6 +26,9 @@ class Village{
     void mineThread();
     int getFromMine();
     std::vector<Redneck> rednecks;
+    std::vector<std::thread> rednecksThreads;
+    static void redneckThread(Redneck *redneck);
     int rednecksCounter;
+    void spotterThread();
 };
 #endif

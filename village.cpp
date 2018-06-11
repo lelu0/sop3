@@ -5,9 +5,6 @@ Village::Village(){
     factory = Factory(2000);
     mine = Mine(3000);
     rednecksCounter = 0;
-    for(int i = 0; i < 10; i++){
-         rednecks.push_back(Redneck(2000,rednecksCounter++));         
-    }
    
 }
 void Village::factoryThread(){
@@ -39,5 +36,21 @@ void Village::mineThread(){
         l.unlock();
         mineResourcesNotEmpty.notify_one();
         std::this_thread::sleep_for(std::chrono::milliseconds(mine.timeFactor));
+    }
+}
+
+void Village::spotterThread(){
+    while(true){
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    rednecks.push_back(Redneck(2000,rednecksCounter++));
+    Redneck t = rednecks[rednecks.size() - 1];
+    rednecksThreads.push_back(std::thread(redneckThread, &t));
+    }
+}
+
+void Village::redneckThread(Redneck *redneck){ 
+    while(true){
+        redneck->move();
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }

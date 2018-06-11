@@ -44,11 +44,12 @@ int main(int argc, char *argv[])
     std::thread exitThread(exitListener); 
     std::thread factoryThread(&Village::factoryThread, village);
     std::thread mineThread(&Village::mineThread, village);
-
+    std::thread spotThread(&Village::spotterThread, village);
     windowThread.join();
     exitThread.join();
     factoryThread.join();
     mineThread.join();
+    spotThread.join();
     
     return 0;
     
