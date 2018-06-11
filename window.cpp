@@ -42,13 +42,18 @@ void Window::drawPeoples(std::vector<Redneck> rednecks)
 {
     for (int i = 0; i < rednecks.size(); i++)
     {
-        if (rednecks[i].health > 0)
-            mvprintw(rednecks[i].position[0], rednecks[i].position[1], "o");
+        if (rednecks[i].health > 0){
+            if(rednecks[i].isCarring)
+                mvprintw(rednecks[i].position[0], rednecks[i].position[1], "o");
+            else
+                mvprintw(rednecks[i].position[0], rednecks[i].position[1], "x");
+        }
+            
     }
     mvprintw(0, 15, "vecsize: %d", rednecks.size());
 }
 
-void Window::drawFactory(int store)
+void Window::drawFactory(int store, int materials)
 {
     mvprintw(0, 51, "Factory");
     //draw border
@@ -62,13 +67,14 @@ void Window::drawFactory(int store)
         mvprintw(i, 50, "|");
     }
     mvprintw(3, 51, "Free:%d", store);
+    mvprintw(4, 51, "Materials:%d", materials);
 }
 
-void Window::updateWindow(int store, int res, std::vector<Redneck> rednecks)
+void Window::updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials)
 {
     clear();
-    drawMine(res, 0, 0);
-    drawFactory(store);
+    drawMine(res, 0, 0); 
+    drawFactory(store, materials);
     drawPeoples(rednecks);
     refresh();
 }

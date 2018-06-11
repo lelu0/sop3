@@ -7,10 +7,10 @@ class Window{
     Window();
     ~Window();
     void initWindow();
-    void updateWindow(int store, int res, std::vector<Redneck> rednecks);
+    void updateWindow(int store, int res, std::vector<Redneck> rednecks, int materials);
     void drawMine(int free, int id, int queue);
     void drawPeoples(std::vector<Redneck> rednecks);
-    void drawFactory(int store);
+    void drawFactory(int store, int materials);
 };
 
 #endif

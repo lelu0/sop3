@@ -27,6 +27,7 @@ class Village{
     Factory factory;
     void factoryThread();
     int getFromFactory();
+    void putToFactory();
     Mine mine;
     void mineThread();
     int getFromMine();

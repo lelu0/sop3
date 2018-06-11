@@ -3,7 +3,7 @@ using namespace std::chrono_literals;
 
 Village::Village()
 {
-    factory = Factory(2000);
+    factory = Factory(5000);
     mine = Mine(3000);
     rednecksCounter = 0;
 }
@@ -12,7 +12,7 @@ void Village::factoryThread()
     while (true)
     {
         std::unique_lock<std::mutex> l(f_mutex);
-        if (factory.materials == 0)
+        if (factory.materials <= 0)
             factoryMaterialsNotEmpty.wait(l);
         factory.materials--;
         factory.stock++;
@@ -25,11 +25,18 @@ void Village::factoryThread()
 int Village::getFromFactory()
 {
     std::unique_lock<std::mutex> l(f_mutex);
-    if (factory.stock == 0)
-        factoryStockNotEmpty.wait_for(l, 22000ms, [this] { return factory.stock != 0; });
+    if (factory.stock <= 0)
+        factoryStockNotEmpty.wait(l);        
     factory.stock--;
     l.unlock();
     return 1;
+}
+
+void Village::putToFactory(){
+    std::unique_lock<std::mutex> l(f_mutex);
+    factory.materials++;
+    factoryMaterialsNotEmpty.notify_one();          
+    l.unlock();
 }
 
 void Village::mineThread()
@@ -47,9 +54,9 @@ void Village::mineThread()
 void Village::spotterThread()
 {
     std::ofstream myfile;
-    while (rednecksCounter < 10)
+    while (rednecksCounter < 20)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         for(int i = 0; i < rednecks.size(); i++){            
             myfile.open("rednect.txt",std::ios::out | std::ios::app);
             myfile << "id: ";
@@ -70,7 +77,15 @@ void Village::redneckThread(int id)
         if(rednecks[id].health <= 0) continue;
         w_mutex.lock();
         rednecks[id].move();
-        rednecks[id].health--;        
+        w_mutex.unlock();
+        rednecks[id].health--;
+        if(rednecks[id].isCarring && rednecks[id].checkFactory()){
+            putToFactory();
+            rednecks[id].isCarring = false;
+        }
+        if(rednecks[id].checkFactory()){
+            rednecks[id].health += 20*getFromFactory();
+        }        
         /*if (rednecks[id].id == 1)
         {            
             myfile.open("rednect.txt",std::ios::out | std::ios::app);
@@ -81,9 +96,9 @@ void Village::redneckThread(int id)
             myfile << "\n";
             myfile.close();
         }*/
-        w_mutex.unlock();
+        
         
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
     }
 }
