@@ -15,6 +15,7 @@ class AppConfig{
     int foodIncMax;
     int redneckStepTime;
     int redneckStartHealth;
+    int miningCost;
     AppConfig();
     ~AppConfig();
 };

@@ -2,12 +2,12 @@
 Project 3 - Rednecks Village  
 Connected gist: https://gist.github.com/lelu0/e63d3c41283f64e4382119dac999b8bf  
   
----
-**Run command** "./p1"  
+---  
+*Run command: ./p1*  
 *No parameters required*  
 Config values are loaded from *config.cfg* file. Take care of proper form of this file!  
 ---  
-**Config file description**  
+*Config file description*  
 MINE_DELAY  
 How long takes mine to produce 1 piece
 FACTORY_DELAY  
@@ -28,6 +28,8 @@ REDNECK_STEP_TIME
 As is    
 REDNECK_START_HEALTH  
 Clear enough  
+MINING_COST  
+How much health is taken by minig
   
 ---
 

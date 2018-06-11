@@ -46,6 +46,9 @@ AppConfig::AppConfig()
             case 9:
                 redneckStartHealth = stoi(str);
                 break;
+            case 10:
+                miningCost = stoi(str);
+                break;
             }
             linecounter++;
         }

@@ -105,8 +105,10 @@ void Village::redneckThread(int id)
         }
         if (rednecks[id].checkMine())
         {
-            if (getFromMine(id) == 1)
+            if (getFromMine(id) == 1){
                 rednecks[id].isCarring = true; 
+                rednecks[id].health -= config->miningCost;
+            }
         }
         /*if (rednecks[id].id == 1)
         {            
