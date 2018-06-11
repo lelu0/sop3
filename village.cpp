@@ -65,19 +65,19 @@ int Village::getFromMine(int id)
         mineResourcesNotEmpty.wait(l);
     }
     mine.mining = id;
-    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    std::this_thread::sleep_for(std::chrono::milliseconds(config->miningTime));
     mine.resources--;
     mine.mining = -1;
     l.unlock();
-    miningCond.notify_one();
+    miningCond.notify_one(); 
     return 1;
 }
 
 void Village::spotterThread()
 {
-    while (rednecksCounter < 20)
+    while (rednecksCounter < config->maxPopulation)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 5000 + 1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(rand() % config->spotMax + config->spotMin));
         rednecks.push_back(Redneck(2000, rednecksCounter));
         rednecksThreads.push_back(std::thread(&Village::redneckThread, this, rednecksCounter++));
     }
@@ -101,7 +101,7 @@ void Village::redneckThread(int id)
         }
         if (rednecks[id].checkFactory())
         {
-            rednecks[id].health += (rand() % 100 + 50) * getFromFactory();
+            rednecks[id].health += (rand() % config->foodIncMax + config->foodIncMin) * getFromFactory();
         }
         if (rednecks[id].checkMine())
         {
@@ -119,6 +119,6 @@ void Village::redneckThread(int id)
             myfile.close();
         }*/
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        std::this_thread::sleep_for(std::chrono::milliseconds(config->redneckStepTime));
     }
 }

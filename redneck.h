@@ -1,6 +1,8 @@
 #ifndef REDNECK_H
 #define REDNECK_H
 #include <stdlib.h> 
+#include "config.h"
+extern AppConfig *config;
 class Redneck{
     public:
     int id;

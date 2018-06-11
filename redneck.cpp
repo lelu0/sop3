@@ -3,7 +3,7 @@
 Redneck::Redneck(int f, int id){
     this->id = id;
     timeFactor = f;
-    health = 100;
+    health = config->redneckStartHealth;
     isCarring = false;
     direction = (rand() % 100) > 50 ? false : true;
     position[1] = rand() % screenBorder[1] + 10;

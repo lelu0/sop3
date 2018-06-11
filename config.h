@@ -7,6 +7,14 @@ class AppConfig{
     public:
     int mineDelay;
     int factoryDelay;
+    int miningTime;
+    int spotMin;
+    int spotMax;
+    int maxPopulation;
+    int foodIncMin;
+    int foodIncMax;
+    int redneckStepTime;
+    int redneckStartHealth;
     AppConfig();
     ~AppConfig();
 };
